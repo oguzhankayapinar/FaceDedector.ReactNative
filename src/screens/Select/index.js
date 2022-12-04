@@ -1,14 +1,13 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { styles } from "./styles";
+import styles from "./styles";
 
-const Home = () => {
+const Select = () => {
   return (
     <View style={styles.container}>
-      <Text> home pages </Text>
-      <Text>Home</Text>
+      <Text> Select Page </Text>
     </View>
   );
 };
 
-export { Home };
+export { Select };
