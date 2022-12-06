@@ -8,7 +8,7 @@ const height = Dimensions.get('window').height;
 
 
 
-export default function App() {
+const CameraDetector = ({ navigation }) => {
     const [hasPermission, setHasPermission] = React.useState();
     const [faceData, setFaceData] = React.useState([]);
 
@@ -99,10 +99,9 @@ export default function App() {
                 }}>
                 {getFaceDataView()}
 
-                {/* <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate('Login')}
-      /> */}
+                {
+                    <Button title="denemeye git " onPress={() => { navigation.navigate('Stacknav', { screen: 'Deneme' }); }}> </Button>
+                }
 
 
 
@@ -159,3 +158,5 @@ const styles = StyleSheet.create({
         };
     },
 });
+
+export { CameraDetector }
