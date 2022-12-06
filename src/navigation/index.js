@@ -15,7 +15,7 @@ const Navigation = (props) => {
           component={screens.Home}
           options={{
             tabBarIcon: ({ focused, color, size }) => {
-              if (focused) return <MaterialCommunityIcons name="home" color={"#424642"} size={size} />;
+              if (focused) return <MaterialCommunityIcons name="home" color={"#F96666"} size={size} />;
               return <MaterialCommunityIcons name="home-outline" color={color} size={size} />;
             },
           }}
@@ -25,7 +25,7 @@ const Navigation = (props) => {
           component={screens.Select}
           options={{
             tabBarIcon: ({ focused, color, size }) => {
-              if (focused) return <MaterialCommunityIcons name="account-edit" color={"#424642"} size={size} />;
+              if (focused) return <MaterialCommunityIcons name="account-edit" color={"#F96666"} size={size} />;
               return <MaterialCommunityIcons name="account-edit-outline" color={color} size={size} />;
             },
           }}
@@ -35,7 +35,7 @@ const Navigation = (props) => {
           component={screens.Login}
           options={{
             tabBarIcon: ({ focused, color, size }) => {
-              if (focused) return <MaterialCommunityIcons name="account" color={"#424642"} size={size} />;
+              if (focused) return <MaterialCommunityIcons name="account" color={"#F96666"} size={size} />;
               return <MaterialCommunityIcons name="account-outline" color={color} size={size} />;
             },
           }}
