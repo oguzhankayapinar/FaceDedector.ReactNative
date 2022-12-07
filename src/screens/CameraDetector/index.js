@@ -1,21 +1,23 @@
-import { Button, Dimensions, StyleSheet, Text, View } from 'react-native';
-import React from 'react';
-import { Camera } from 'expo-camera';
-import * as FaceDetector from 'expo-face-detector';
+import { Button, Dimensions, StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { Camera } from "expo-camera";
+import * as FaceDetector from "expo-face-detector";
 
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
-
+const width = Dimensions.get("window").width;
+const height = Dimensions.get("window").height;
 
 
 const CameraDetector = ({ }) => {
+
 
   const [hasPermission, setHasPermission] = React.useState();
   const [faceData, setFaceData] = React.useState([]);
 
   const [box, setBox] = React.useState(null);
 
-  // camera permission 
+
+  // camera permission
+
   React.useEffect(() => {
     (async () => {
       const { status } = await Camera.requestCameraPermissionsAsync();
@@ -45,10 +47,10 @@ const CameraDetector = ({ }) => {
             <Text style={styles.faceDesc}>Eyes Shut: {eyesShut.toString()}</Text>
             <Text style={styles.faceDesc}>Winking: {winking.toString()}</Text>
             <Text style={styles.faceDesc}>Smiling: {smiling.toString()}</Text>
-            {smiling ? <Text> harika görünüyorsun  </Text> : <Text>  Solgunsun </Text>}
 
 
 
+            {smiling ? <Text> harika görünüyorsun </Text> : <Text> Solgunsun </Text>}
           </View>
 
         );
@@ -60,7 +62,6 @@ const CameraDetector = ({ }) => {
   const handleFacesDetected = ({ faces }) => {
     setFaceData(faces);
     console.log(faces);
-
 
     if (faces[0]) {
       setBox({
@@ -78,12 +79,8 @@ const CameraDetector = ({ }) => {
       });
     }
 
+  };
 
-
-
-
-
-  }
 
   return (
     <View style={styles.container}>
@@ -96,15 +93,16 @@ const CameraDetector = ({ }) => {
           detectLandmarks: FaceDetector.FaceDetectorLandmarks.all,
           runClassifications: FaceDetector.FaceDetectorClassifications.all,
           minDetectionInterval: 100,
-          tracking: true
-        }}>
+
+          tracking: true,
+        }}
+      >
+
         {getFaceDataView()}
 
         {
           <Button title="denemeye git " onPress={() => { navigation.navigate('Stacknav', { screen: 'Deneme' }); }}> </Button>
         }
-
-
 
       </Camera>
       {box && (
@@ -120,41 +118,40 @@ const CameraDetector = ({ }) => {
 
     </View>
 
-
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'gray',
+    backgroundColor: "gray",
   },
   camera: {
     flexGrow: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
   faces: {
-    backgroundColor: ' #transparent',
+    backgroundColor: " #transparent",
     borderWidth: 5,
-    borderColor: 'red',
-    alignSelf: 'stretch',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 16
+    borderColor: "red",
+    alignSelf: "stretch",
+    alignItems: "center",
+    justifyContent: "center",
+    margin: 16,
   },
   faceDesc: {
-    fontSize: 20
+    fontSize: 20,
   },
   bound: ({ width, height, x, y }) => {
     return {
-      position: 'absolute',
+      position: "absolute",
       top: y,
       left: x - 50,
       height,
       width,
       borderWidth: 5,
-      borderColor: 'red',
+      borderColor: "red",
       zIndex: 3000,
     };
   },

@@ -6,7 +6,7 @@ import * as screens from "../screens";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStagitckNavigator();
 
 const Stacknav = () => {
   return (
