@@ -12,7 +12,7 @@ const Stacknav = () => {
   return (
     <Stack.Navigator>
       <Stack.Screen name="login" component={screens.Login} />
-      <Stack.Screen name="Camera" component={screens.CameraDetector} />
+      <Stack.Screen name="CameraDetector" component={screens.CameraDetector} />
       <Stack.Screen name="Deneme" component={screens.Deneme} />
     </Stack.Navigator>
   )
