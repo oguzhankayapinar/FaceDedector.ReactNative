@@ -1,11 +1,11 @@
 import { SafeAreaView, StyleSheet } from "react-native";
-import { Navigation } from "./src/navigation";
 import { StatusBar } from "expo-status-bar";
+import { Stacknav } from "./src/navigation/StackNavigation";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Navigation />
+      <Stacknav />
       <StatusBar hidden={true} />
     </SafeAreaView>
   );

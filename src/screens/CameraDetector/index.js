@@ -88,7 +88,15 @@ const CameraDetector = ({ navigation }) => {
         {getFaceDataView()}
 
         {
-          <Button title="denemeye git " onPress={() => { navigation.navigate('Stacknav', { screen: 'Deneme' }); }}> </Button>
+          <Button
+            title="denemeye git "
+            onPress={() => {
+              navigation.navigate("Stacknav", { screen: "Deneme" });
+              console.log(navigation.navigate("Stacknav", { screen: "Deneme" }));
+            }}
+          >
+            {" "}
+          </Button>
         }
       </Camera>
       {box && (
@@ -103,7 +111,7 @@ const CameraDetector = ({ navigation }) => {
       )}
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -141,4 +149,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export { CameraDetector }
+export { CameraDetector };
