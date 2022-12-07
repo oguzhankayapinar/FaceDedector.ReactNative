@@ -3,6 +3,21 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 import * as screens from "../screens";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+
+const Stack = createNativeStagitckNavigator();
+
+const Stacknav = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="login" component={screens.Login} />
+      <Stack.Screen name="Camera" component={screens.CameraDetector} />
+      <Stack.Screen name="Deneme" component={screens.Deneme} />
+    </Stack.Navigator>
+  )
+}
+
 
 const Tab = createBottomTabNavigator();
 
@@ -31,8 +46,8 @@ const Navigation = (props) => {
           }}
         />
         <Tab.Screen
-          name="Login"
-          component={screens.Login}
+          name="Stacknav"
+          component={Stacknav}
           options={{
             tabBarIcon: ({ focused, color, size }) => {
               if (focused) return <MaterialCommunityIcons name="account" color={"#424642"} size={size} />;

@@ -1,8 +1,9 @@
+
 import React from "react";
-import { View, Text, Image, SafeAreaView, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, Image, SafeAreaView, TextInput, TouchableOpacity, Button } from "react-native";
 import styles from "./styles";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Image source={require("../../İmages/login.png")} style={styles.image} />
@@ -11,6 +12,8 @@ const Login = () => {
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Ekle</Text>
       </TouchableOpacity>
+      <Button title="Başlat" onPress={() => { navigation.navigate('Stacknav', { screen: 'CameraDetector' }); }}> </Button>
+
     </View>
   );
 };
