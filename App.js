@@ -1,6 +1,7 @@
 import { SafeAreaView, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Stacknav } from "./src/navigation/StackNavigation";
+import './assets/i18n/language'
 
 export default function App() {
   return (
