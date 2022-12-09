@@ -1,17 +1,28 @@
 import React from "react";
 import { View, Text, Button } from "react-native";
 import styles from "./styles";
+import '../../../assets/i18n/language';
+import { useTranslation } from 'react-i18next';
+
+
 
 const Select = ({ navigation }) => {
   const openCamera = () => {
     navigation.navigate("CameraDetector", { screen: "CameraDetector" });
     console.log("click", navigation.navigate("CameraDetector", { screen: "CameraDetector" }));
   };
+  const { t, i18n } = useTranslation();
 
+  const changeLanguage = (language) => {
+    i18n.changeLanguage(language);
+  };
   return (
     <View style={styles.container}>
       <Text> Select Page </Text>
-      <Button title="ekle" onPress={openCamera} />
+      <Button title={t("add")} onPress={openCamera} />
+
+      <Button title="çevir" onPress={() => i18n.language === "en" ? changeLanguage("tr") : changeLanguage("en")} />
+
     </View>
   );
 };
