@@ -1,12 +1,16 @@
 import { SafeAreaView, StyleSheet } from "react-native";
 import { StatusBar } from "expo-status-bar";
 import { Stacknav } from "./src/navigation/StackNavigation";
+import { Provider } from "react-redux";
+import store from "./src/redux";
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <Stacknav />
-      <StatusBar hidden={true} />
+      <Provider store={store}>
+        <Stacknav />
+        <StatusBar hidden={true} />
+      </Provider>
     </SafeAreaView>
   );
 }
