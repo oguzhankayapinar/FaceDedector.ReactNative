@@ -6,15 +6,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.lightpink,
+    justifyContent: "center",
   },
   image: {
-    width: "100%",
-    height: "60%",
+    width: W(100),
+    height: H(50),
   },
   text: {
     color: colors.blue,
     fontSize: 20,
-    fontWeight: "bolder",
+    fontWeight: "bold",
     textAlign: "center",
     marginTop: H(5),
   },
@@ -23,12 +24,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
     marginTop: H(3),
-    padding: 5,
+    padding: 7,
   },
   button: {
     borderWidth: 0.5,
     backgroundColor: colors.darkpink,
-    padding: 8,
+    padding: 10,
     marginTop: H(1),
   },
   buttonText: {

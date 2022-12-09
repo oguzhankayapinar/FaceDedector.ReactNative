@@ -1,34 +1,92 @@
 import React from "react";
-import { View, Text, Button } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, ScrollView } from "react-native";
+import { useDispatch, useSelector } from "react-redux";
+import { Formik } from "formik";
+import * as yup from "yup";
+import { setApp } from "../../redux/actions/app";
 import styles from "./styles";
 
-const Select = ({ navigation }) => {
+const Select = ({ navigation }, props) => {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.App.list);
+  const name = useSelector((state) => state.App.name);
+  console.log("select sayfası", state, name);
+
   const openCamera = () => {
     navigation.navigate("CameraDetector", { screen: "CameraDetector" });
-    console.log("click", navigation.navigate("CameraDetector", { screen: "CameraDetector" }));
+  };
+
+  const addSelect = (values) => {
+    console.log(values);
+    dispatch(setApp(values));
   };
 
   return (
     <View style={styles.container}>
-      <Text> Select Page </Text>
-      <Button title="ekle" onPress={openCamera} />
+      {name && <Text style={styles.nickname}>Welcome now text to input {name}</Text>}
+      <Text style={styles.description}>
+        "Fill in the entries first, then hit the add button. After doing the above, press the open camera button."
+      </Text>
+      <Formik
+        initialValues={{ cilt: "", makeup: "", washing: "", useskincare: "" }}
+        onSubmit={addSelect}
+        validationSchema={yup.object().shape({
+          cilt: yup.string().min(3, "Can not be less than 3 characters.").required("Is required."),
+          makeup: yup.string().required("Is required."),
+          washing: yup.string().required("Is required."),
+          useskincare: yup.string().min(3, "Can not be less than 3 characters.").required("Is required."),
+        })}
+      >
+        {({ handleChange, handleSubmit, values, errors, touched }) => (
+          <View>
+            <Text style={styles.guestion}>Sabah uyanınca cildin nasıl olur ?</Text>
+            <TextInput
+              placeholder="Yağlı, kuru, karma"
+              style={styles.inputone}
+              returnKeytype=" done "
+              value={values.cilt}
+              onChangeText={handleChange("cilt")}
+            />
+            {touched.cilt && errors.cilt && <Text style={{ fontSize: 13, color: "red", marginLeft: 20 }}>{errors.cilt}</Text>}
+            <Text style={styles.guestion}>Makyaj yapıyor musun ?</Text>
+            <TextInput
+              placeholder="evet / hayır"
+              style={styles.inputone}
+              returnKeytype=" done "
+              value={values.makeup}
+              onChangeText={handleChange("makeup")}
+            />
+            {touched.makeup && errors.makeup && <Text style={{ fontSize: 13, color: "red", marginLeft: 20 }}>{errors.makeup}</Text>}
+            <Text style={styles.guestion}>Gün içinde cildini yıkamak istiyor musun ?</Text>
+            <TextInput
+              placeholder="evet / hayır"
+              style={styles.inputone}
+              returnKeytype=" done "
+              value={values.washing}
+              onChangeText={handleChange("washing")}
+            />
+            {touched.washing && errors.washing && <Text style={{ fontSize: 13, color: "red", marginLeft: 20 }}>{errors.washing}</Text>}
+            <Text style={styles.guestion}>Cildini yıkarken ne kullanıyorsun ?</Text>
+            <TextInput
+              placeholder="sabun / yüz yıkama jeli "
+              style={styles.inputone}
+              returnKeytype=" done "
+              value={values.useskincare}
+              onChangeText={handleChange("useskincare")}
+            />
+            {touched.useskincare && errors.useskincare && <Text style={{ fontSize: 13, color: "red", marginLeft: 20 }}>{errors.useskincare}</Text>}
+            <TouchableOpacity onPress={handleSubmit} style={styles.addContainer}>
+              <Text style={styles.inputAdd}>Add</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity onPress={openCamera} style={styles.cameraContainer}>
+              <Text style={styles.cameraText}>Open Camera</Text>
+            </TouchableOpacity>
+          </View>
+        )}
+      </Formik>
     </View>
   );
 };
 
 export { Select };
-
-/**  <Picker selectedValue={selectedValue} style={{ height: 50, width: 150 }} onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}>
-        <Picker.Item label="Java" value="java" />
-        <Picker.Item label="JavaScript" value="js" />
-      </Picker>
-       <Button
-        title="Başlat"
-        onPress={() => {
-          navigation.navigate({ name: "Stacknav", params: { screen: "Deneme" } });
-          console.log("click", navigation.navigate("Stacknav", { screen: "CameraDetector" }));
-        }}
-      >
-        {" "}
-      </Button>
-      */
