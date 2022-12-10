@@ -1,7 +1,8 @@
-import { Button, Dimensions, StyleSheet, Text, View } from "react-native";
+import { Dimensions, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Camera } from "expo-camera";
 import * as FaceDetector from "expo-face-detector";
+import colors from "../../theme/color";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -42,6 +43,8 @@ const CameraDetector = ({ navigation }) => {
             <Text style={styles.faceDesc}>Eyes Shut: {eyesShut.toString()}</Text>
             <Text style={styles.faceDesc}>Winking: {winking.toString()}</Text>
             <Text style={styles.faceDesc}>Smiling: {smiling.toString()}</Text>
+            {eyesShut ? <Text>Close the Eyes</Text> : <Text>You eyes Good</Text>}
+            {winking ? <Text> harika görünüyorsun </Text> : <Text> Solgunsun </Text>}
             {smiling ? <Text> harika görünüyorsun </Text> : <Text> Solgunsun </Text>}
           </View>
         );
@@ -88,15 +91,15 @@ const CameraDetector = ({ navigation }) => {
         {getFaceDataView()}
 
         {
-          <Button
-            title="denemeye git "
+          <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Stacknav", { screen: "Deneme" });
-              console.log(navigation.navigate("Stacknav", { screen: "Deneme" }));
+              navigation.navigate("Home", { screen: "Home" });
+              console.log(navigation.navigate("Home", { screen: "Home" }));
             }}
+            style={styles.homepage}
           >
-            {" "}
-          </Button>
+            <Text style={styles.homebutton}>Take a Photo</Text>
+          </TouchableOpacity>
         }
       </Camera>
       {box && (
@@ -124,29 +127,54 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   faces: {
+    position: "absolute",
     backgroundColor: " #transparent",
-    borderWidth: 5,
-    borderColor: "red",
-    alignSelf: "stretch",
-    alignItems: "center",
-    justifyContent: "center",
+    borderWidth: 2,
+    borderColor: colors.darkblue,
+    zIndex: 1000,
+    top: 10,
     margin: 16,
+    padding: 20,
+    borderRadius: 10,
   },
   faceDesc: {
     fontSize: 20,
+  },
+  homepage: {
+    position: "absolute",
+    bottom: 20,
+    borderRadius: 50,
+    padding: 20,
+    backgroundColor: colors.darkblue,
+  },
+  homebutton: {
+    color: "white",
+    fontSize: 17,
   },
   bound: ({ width, height, x, y }) => {
     return {
       position: "absolute",
       top: y,
-      left: x - 50,
+      left: x - 10,
       height,
       width,
-      borderWidth: 5,
-      borderColor: "red",
+      borderWidth: 1,
+      borderColor: colors.darkblue,
       zIndex: 3000,
     };
   },
 });
 
 export { CameraDetector };
+
+/**
+ *          <Button
+            title="denemeye git "
+            onPress={() => {
+              navigation.navigate("Stacknav", { screen: "Deneme" });
+              console.log(navigation.navigate("Stacknav", { screen: "Deneme" }));
+            }}
+          >
+            {" "}
+          </Button>
+ */

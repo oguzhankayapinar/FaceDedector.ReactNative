@@ -1,0 +1,15 @@
+{
+    "login": "Login",
+    "add": "Add",
+    "command": "Fill in the entries first, then hit the add button. After doing the above, press the open camera button.",
+    "query1": "How does your skin feel when you wake up in the morning?",
+    "ans1": "Oily, dry, mixed",
+    "query2": "Are you wearing makeup?",
+    "ans2": "Yes/No ",
+    "query3": "Do you want to wash your skin during the day?",
+    "query4": "What do you use to wash your skin?",
+    "ans4": "Soap / Face Wash Gel",
+    "cam": "Open Cam",
+    "nicks": "Please Enter NickName",
+    "nickname": "NickName"
+}

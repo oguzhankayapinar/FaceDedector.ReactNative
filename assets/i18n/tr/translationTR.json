@@ -1,0 +1,15 @@
+{
+    "login": "Giriş",
+    "add": "Ekle",
+    "command": "Önce girişleri doldurun, ardından ekle düğmesine basın. Yukarıdakileri yaptıktan sonra, kamerayı aç düğmesine basın.",
+    "query1": "Sabah uyanınca cildin nasıl olur?",
+    "ans1": "Yağlı, kuru, karma",
+    "query2": "Makyaj yapıyor musun?",
+    "ans2": "Evet/Hayır",
+    "query3": "Gün içinde cildini yıkamak istiyor musun?",
+    "query4": "Cildini yıkarken ne kullanıyorsun?",
+    "ans4": "Sabun / Yüz Yıkama Jeli",
+    "cam": "Kamerayı Aç",
+    "nicks": "Lütfen Kullanıcı Adınızı Girin",
+    "nickname": "Kullanıcı Adı"
+}
