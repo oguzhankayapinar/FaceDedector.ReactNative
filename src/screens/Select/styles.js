@@ -6,15 +6,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.lightpink,
-    justifyContent: "center",
     alignItems: "center",
+    justifyContent: "flex-start",
   },
   description: {
     fontSize: 14,
     color: "#424642",
     fontWeight: "bold",
-    marginBottom: 20,
     width: W(91),
+    position: "absolute",
+    bottom: 20,
   },
   inputone: {
     borderWidth: 1,
@@ -40,9 +41,8 @@ const styles = StyleSheet.create({
     backgroundColor: colors.blue,
   },
   addContainer: {
-    borderWidth: 1,
     width: W(100),
-    marginVertical: 15,
+    marginVertical: 10,
   },
   inputAdd: {
     color: "white",
@@ -52,7 +52,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.darkpink,
   },
   cameraContainer: {
-    borderWidth: 1,
     width: W(100),
   },
   cameraText: {
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
     padding: 10,
     textAlign: "center",
     fontSize: 18,
-    backgroundColor: colors.darkblue,
+    backgroundColor: colors.blue,
   },
   guestion: {
     fontSize: 19,

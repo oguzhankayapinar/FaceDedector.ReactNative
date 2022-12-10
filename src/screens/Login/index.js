@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, SafeAreaView } from "react-native";
 import { Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { setNickName } from "../../redux/actions/app";
@@ -16,28 +16,30 @@ const Login = ({ navigation }, props) => {
     navigation.navigate("Select", { screen: "Select" });
   };
   return (
-    <View style={styles.container}>
-      <Image source={require("../../İmages/login.png")} style={styles.image} />
-      <Text style={styles.text}>Please Enter NickName ?</Text>
+    <SafeAreaView style={styles.safeAreaView}>
+      <View style={styles.container}>
+        <Image source={require("../../İmages/login.png")} style={styles.image} />
+        <Text style={styles.text}>Please Enter NickName ?</Text>
 
-      <Formik
-        initialValues={{ nickName: "" }}
-        onSubmit={addNickName}
-        validationSchema={yup.object().shape({
-          nickName: yup.string().required("NickName is required."),
-        })}
-      >
-        {({ values, handleChange, handleSubmit, errors, touched }) => (
-          <View>
-            <TextInput placeholder="NickName" style={styles.input} value={values.nickName} onChangeText={handleChange("nickName")} />
-            {touched.nickName && errors.nickName && <Text style={{ fontSize: 13, color: "red" }}>{errors.nickName}</Text>}
-            <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-              <Text style={styles.buttonText}>Ekle</Text>
-            </TouchableOpacity>
-          </View>
-        )}
-      </Formik>
-    </View>
+        <Formik
+          initialValues={{ nickName: "" }}
+          onSubmit={addNickName}
+          validationSchema={yup.object().shape({
+            nickName: yup.string().required("NickName is required."),
+          })}
+        >
+          {({ values, handleChange, handleSubmit, errors, touched }) => (
+            <View>
+              <TextInput placeholder="NickName" style={styles.input} value={values.nickName} onChangeText={handleChange("nickName")} />
+              {touched.nickName && errors.nickName && <Text style={{ fontSize: 13, color: "red" }}>{errors.nickName}</Text>}
+              <TouchableOpacity style={styles.button} onPress={handleSubmit}>
+                <Text style={styles.buttonText}>Ekle</Text>
+              </TouchableOpacity>
+            </View>
+          )}
+        </Formik>
+      </View>
+    </SafeAreaView>
   );
 };
 

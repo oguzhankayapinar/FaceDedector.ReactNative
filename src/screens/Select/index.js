@@ -1,9 +1,10 @@
 import React from "react";
-import { View, Text, TextInput, TouchableOpacity, ScrollView } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, Image } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { setApp } from "../../redux/actions/app";
+import { Faces } from "./Faces";
 import styles from "./styles";
 
 const Select = ({ navigation }, props) => {
@@ -18,23 +19,22 @@ const Select = ({ navigation }, props) => {
 
   const addSelect = (values) => {
     console.log(values);
-    dispatch(setApp(values));
+    dispatch(setApp([values]));
   };
 
   return (
     <View style={styles.container}>
+      <Faces />
       {name && <Text style={styles.nickname}>Welcome now text to input {name}</Text>}
-      <Text style={styles.description}>
-        "Fill in the entries first, then hit the add button. After doing the above, press the open camera button."
-      </Text>
+
       <Formik
         initialValues={{ cilt: "", makeup: "", washing: "", useskincare: "" }}
         onSubmit={addSelect}
         validationSchema={yup.object().shape({
-          cilt: yup.string().min(3, "Can not be less than 3 characters.").required("Is required."),
-          makeup: yup.string().required("Is required."),
-          washing: yup.string().required("Is required."),
-          useskincare: yup.string().min(3, "Can not be less than 3 characters.").required("Is required."),
+          cilt: yup.string().max(5).min(3, "Can not be less than 3 characters.").required("Is required."),
+          makeup: yup.string().required("Is required.").max(5),
+          washing: yup.string().required("Is required.").max(5),
+          useskincare: yup.string().min(5, "Can not be less than 4 characters.").required("Is required."),
         })}
       >
         {({ handleChange, handleSubmit, values, errors, touched }) => (
@@ -85,8 +85,13 @@ const Select = ({ navigation }, props) => {
           </View>
         )}
       </Formik>
+      <Text style={styles.description}>
+        "Fill in the entries first, then hit the add button. After doing the above, press the open camera button."
+      </Text>
     </View>
   );
 };
 
 export { Select };
+/**        <View ></View>
+ */
