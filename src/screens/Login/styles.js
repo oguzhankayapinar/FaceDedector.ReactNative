@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
-    marginTop: H(5),
+    marginTop: H(2),
   },
   input: {
     borderWidth: 0.5,
