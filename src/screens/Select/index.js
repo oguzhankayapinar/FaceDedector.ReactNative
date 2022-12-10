@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { setApp } from "../../redux/actions/app";
+import { Faces } from "./Faces";
 import styles from "./styles";
 import '../../../assets/i18n/language';
 import { useTranslation } from 'react-i18next';
@@ -24,7 +25,7 @@ const Select = ({ navigation }, props) => {
 
   const addSelect = (values) => {
     console.log(values);
-    dispatch(setApp(values));
+    dispatch(setApp([values]));
   };
   const { t, i18n } = useTranslation();
 
@@ -33,7 +34,9 @@ const Select = ({ navigation }, props) => {
   };
   return (
     <View style={styles.container}>
+      <Faces />
       {name && <Text style={styles.nickname}>Welcome now text to input {name}</Text>}
+
       <Text style={styles.description}>
         {t("command")}
       </Text>
@@ -41,10 +44,10 @@ const Select = ({ navigation }, props) => {
         initialValues={{ cilt: "", makeup: "", washing: "", useskincare: "" }}
         onSubmit={addSelect}
         validationSchema={yup.object().shape({
-          cilt: yup.string().min(3, "Can not be less than 3 characters.").required("Is required."),
-          makeup: yup.string().required("Is required."),
-          washing: yup.string().required("Is required."),
-          useskincare: yup.string().min(3, "Can not be less than 3 characters.").required("Is required."),
+          cilt: yup.string().max(5).min(3, "Can not be less than 3 characters.").required("Is required."),
+          makeup: yup.string().required("Is required.").max(5),
+          washing: yup.string().required("Is required.").max(5),
+          useskincare: yup.string().min(5, "Can not be less than 4 characters.").required("Is required."),
         })}
       >
         {({ handleChange, handleSubmit, values, errors, touched }) => (
@@ -99,8 +102,11 @@ const Select = ({ navigation }, props) => {
         )}
       </Formik>
 
+
     </View>
   );
 };
 
 export { Select };
+/**        <View ></View>
+ */

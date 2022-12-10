@@ -10,7 +10,6 @@ const Home = () => {
     <View style={styles.container}>
       <Text> home pages </Text>
       <Text>Home</Text>
-      <Text>{state}</Text>
     </View>
   );
 };

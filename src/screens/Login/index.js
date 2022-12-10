@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Image, TextInput, TouchableOpacity } from "react-native";
+import { View, Text, Image, TextInput, TouchableOpacity, SafeAreaView } from "react-native";
 import { Formik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { setNickName } from "../../redux/actions/app";
@@ -56,6 +56,7 @@ const Login = ({ navigation }, props) => {
       </Formik>
 
     </View>
+
   );
 };
 
