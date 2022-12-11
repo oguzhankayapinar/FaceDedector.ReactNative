@@ -4,7 +4,10 @@ import { useSelector } from "react-redux";
 import styles from "./styles";
 
 const Home = ({ navigation }) => {
+
   const state = useSelector((state) => state.App.list);
+  const name = useSelector((state) => state.App.name);
+
   console.log("Home sayfa", state);
 
 
@@ -12,7 +15,7 @@ const Home = ({ navigation }) => {
 
   React.useEffect(() => {
 
-    let randomNumber = Math.floor(Math.random() * 2) + 1
+    let randomNumber = Math.floor(Math.random() * 3) + 1
 
     switch (randomNumber) {
       case 1: setResult(<View style={styles.container}>
@@ -118,19 +121,20 @@ const Home = ({ navigation }) => {
 
   }, []);
 
+
   return (
     <ScrollView>
       <View style={styles.container}>
+        {state && <Text>Merhaba {name} cilt analizi sonucun {state} </Text>}
         {result}
-
-        <TouchableOpacity
+        <TouchableOpacity style={styles.button}
           onPress={() => {
             navigation.navigate("Login", { screen: "Login" });
             console.log(navigation.navigate("Login", { screen: "Login" }));
           }}
-          style={styles.homepage}
+
         >
-          <Text style={styles.homebutton}>Go Home Page</Text>
+          <Text style={styles.buttonText}>Home Page</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>

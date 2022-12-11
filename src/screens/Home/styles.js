@@ -146,6 +146,17 @@ const styles = StyleSheet.create({
     marginLeft: 50,
     marginTop: 58,
   },
+  button: {
+    borderWidth: 0.5,
+    backgroundColor: colors.darkpink,
+    padding: 10,
+    marginTop: H(1),
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 18,
+    textAlign: "center",
+  },
 });
 
 export default styles;
