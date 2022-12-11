@@ -157,6 +157,12 @@ const styles = StyleSheet.create({
     fontSize: 18,
     textAlign: "center",
   },
+  names: {
+    color: "white",
+    textAlign: "center",
+    fontSize: 24,
+  }
+
 });
 
 export default styles;

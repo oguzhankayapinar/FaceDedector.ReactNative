@@ -14,14 +14,14 @@ const Select = ({ navigation }, props) => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.App.list);
   const name = useSelector((state) => state.App.name);
-  console.log("select sayfası", state, name);
+  // console.log("select sayfası", state, name);
 
   const openCamera = () => {
     navigation.navigate("CameraDetector", { screen: "CameraDetector" });
   };
 
   const addSelect = (values) => {
-    console.log(values);
+    // console.log(values);
     dispatch(setApp([values]));
   };
   const { t, i18n } = useTranslation();
