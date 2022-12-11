@@ -21,3 +21,18 @@
 
 https://user-images.githubusercontent.com/99039655/206935316-985fe30b-2673-4e07-b26f-d1c066b663e1.mp4
 
+
+-----
+
+<h3 align="center">Tools</h3>
+
+<li> React Navigation </li>
+<li> Redux </li>
+<li> İ18 Next </li>
+<li> Yup </li>
+<li> Formik </li>
+<li> Camera </li>
+<li> Face Dedector </li>
+<li> Vector Icons </li>
+
+
