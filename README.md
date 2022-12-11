@@ -29,6 +29,7 @@ https://user-images.githubusercontent.com/99039655/206935316-985fe30b-2673-4e07-
 <li> React Navigation </li>
 <li> Redux </li>
 <li> İ18 Next </li>
+<li> Expo</li>
 <li> Yup </li>
 <li> Formik </li>
 <li> Camera </li>
