@@ -1,14 +1,21 @@
-import React from "react";
-import { View, Text, ScrollView, Image } from "react-native";
+import React, { useState } from "react";
+import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux";
 import styles from "./styles";
 
-const Home = () => {
+const Home = ({ navigation }) => {
   const state = useSelector((state) => state.App.list);
   console.log("Home sayfa", state);
-  return (
-    <ScrollView>
-      <View style={styles.container}>
+
+
+  const [result, setResult] = useState("");
+
+  React.useEffect(() => {
+
+    let randomNumber = Math.floor(Math.random() * 2) + 1
+
+    switch (randomNumber) {
+      case 1: setResult(<View style={styles.container}>
         <View style={styles.faces}>
           <Image source={require("../../İmages/facebg.png")} style={styles.facebg} />
           <Image source={require("../../İmages/face.png")} style={styles.face} />
@@ -31,7 +38,16 @@ const Home = () => {
             yapabilirsiniz.
           </Text>
         </View>
-
+      </View>);
+        break;
+      case 2: setResult(<View style={styles.container}>
+        <View style={styles.faces}>
+          <Image source={require("../../İmages/facebg.png")} style={styles.facebg} />
+          <Image source={require("../../İmages/face.png")} style={styles.face} />
+          <Image source={require("../../İmages/eyes.png")} style={styles.eyes} />
+          <Image source={require("../../İmages/dry.png")} style={styles.dry} />
+          <Image source={require("../../İmages/body.png")} style={styles.body} />
+        </View>
         <View style={styles.karmaciltcontainer}>
           <View style={styles.faceskarma}>
             <Image source={require("../../İmages/facebg.png")} style={styles.facebg} />
@@ -57,7 +73,17 @@ const Home = () => {
             gerekiyor.
           </Text>
         </View>
-
+      </View>
+      );
+        break;
+      case 3: setResult(<View style={styles.container}>
+        <View style={styles.faces}>
+          <Image source={require("../../İmages/facebg.png")} style={styles.facebg} />
+          <Image source={require("../../İmages/face.png")} style={styles.face} />
+          <Image source={require("../../İmages/eyes.png")} style={styles.eyes} />
+          <Image source={require("../../İmages/dry.png")} style={styles.dry} />
+          <Image source={require("../../İmages/body.png")} style={styles.body} />
+        </View>
         <View style={styles.yaglıcontainer}>
           <View style={styles.facesyaglı}>
             <Image source={require("../../İmages/facebg.png")} style={styles.facebg} />
@@ -85,6 +111,27 @@ const Home = () => {
             salgılamaktan bir süre sonra vazgeçecektir. Hyaluronik asit içeren, yüksek nemlendirme özelliğine sahip ürünleri tercih edebilirsiniz.
           </Text>
         </View>
+      </View>
+      );
+        break;
+    }
+
+  }, []);
+
+  return (
+    <ScrollView>
+      <View style={styles.container}>
+        {result}
+
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Login", { screen: "Login" });
+            console.log(navigation.navigate("Login", { screen: "Login" }));
+          }}
+          style={styles.homepage}
+        >
+          <Text style={styles.homebutton}>Go Home Page</Text>
+        </TouchableOpacity>
       </View>
     </ScrollView>
   );
