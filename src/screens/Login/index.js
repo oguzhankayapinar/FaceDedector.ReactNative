@@ -5,14 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { setNickName } from "../../redux/actions/app";
 import * as yup from "yup";
 import styles from "./styles";
-import { useTranslation } from 'react-i18next';
-import '../../../assets/i18n/language';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-
-
-
-
-
+import { useTranslation } from "react-i18next";
+import "../../../assets/i18n/language";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 const Login = ({ navigation }, props) => {
   const { t, i18n } = useTranslation();
@@ -23,19 +18,13 @@ const Login = ({ navigation }, props) => {
     i18n.changeLanguage(language);
   };
   const addNickName = ({ nickName }) => {
-
-
-
-
     dispatch(setNickName(nickName));
     navigation.navigate("Select", { screen: "Select" });
   };
   return (
-
     <View style={styles.container}>
-
       <Image source={require("../../İmages/login.png")} style={styles.image} />
-      <FontAwesome.Button name="language" backgroundColor={"#FFD1D1"} justifyContent="center" margin={0} color={"#E94560"} size={30} onPress={() => i18n.language === "en" ? changeLanguage("tr") : changeLanguage("en")} />
+
       <Text style={styles.text}>{t("nicks")}</Text>
       <Formik
         initialValues={{ nickName: "" }}
@@ -54,9 +43,15 @@ const Login = ({ navigation }, props) => {
           </View>
         )}
       </Formik>
-
+      <FontAwesome.Button
+        name="language"
+        backgroundColor={"#FFD1D1"}
+        color={"#E94560"}
+        justifyContent="center"
+        size={35}
+        onPress={() => (i18n.language === "en" ? changeLanguage("tr") : changeLanguage("en"))}
+      />
     </View>
-
   );
 };
 

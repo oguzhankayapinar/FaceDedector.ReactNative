@@ -28,12 +28,12 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   nickname: {
-    fontSize: 18,
+    fontSize: 17,
     borderWidth: 0.5,
     borderColor: colors.darkblue,
-    padding: 10,
+    padding: 7,
     borderRadius: 5,
-    marginBottom: 20,
+    marginBottom: 10,
     color: "white",
     fontWeight: "bolder",
     width: W(90),
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
   },
   addContainer: {
     width: W(100),
-    marginVertical: 10,
+    marginVertical: 9,
   },
   inputAdd: {
     color: "white",
