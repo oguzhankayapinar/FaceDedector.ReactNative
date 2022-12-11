@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
   },
   kurucilt: {
     marginBottom: 10,
-    marginTop: 5,
+    marginTop: 10,
+    height: H(100)
   },
   kurucilttext: {
     color: "white",
