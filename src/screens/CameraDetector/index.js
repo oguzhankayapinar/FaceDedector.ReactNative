@@ -3,6 +3,7 @@ import React from "react";
 import { Camera } from "expo-camera";
 import * as FaceDetector from "expo-face-detector";
 import colors from "../../theme/color";
+import { t } from "i18next";
 
 const width = Dimensions.get("window").width;
 const height = Dimensions.get("window").height;
@@ -98,7 +99,7 @@ const CameraDetector = ({ navigation }) => {
             }}
             style={styles.homepage}
           >
-            <Text style={styles.homebutton}>Take a Photo</Text>
+            <Text style={styles.homebutton}>{t("takeaphoto")}</Text>
           </TouchableOpacity>
         }
       </Camera>

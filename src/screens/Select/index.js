@@ -42,7 +42,7 @@ const Select = ({ navigation }, props) => {
           cilt: yup.string().max(5).min(3, "Can not be less than 3 characters.").required("Is required."),
           makeup: yup.string().required("Is required.").max(5),
           washing: yup.string().required("Is required.").max(5),
-          useskincare: yup.string().min(5, "Can not be less than 4 characters.").required("Is required."),
+          useskincare: yup.string().min(4, "Can not be less than 4 characters.").required("Is required."),
         })}
       >
         {({ handleChange, handleSubmit, values, errors, touched }) => (
