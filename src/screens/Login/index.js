@@ -13,7 +13,7 @@ const Login = ({ navigation }, props) => {
   const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const state = useSelector((state) => state.App.name);
-  console.log("login name sayfası", state);
+  // console.log("login name sayfası", state);
   const changeLanguage = (language) => {
     i18n.changeLanguage(language);
   };

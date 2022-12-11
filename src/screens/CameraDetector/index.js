@@ -31,7 +31,7 @@ const CameraDetector = ({ navigation }) => {
     if (faceData.length === 0) {
       return (
         <View style={styles.faces}>
-          <Text style={styles.faceDesc}>No faces :(</Text>
+          <Text style={styles.faceDesc}>No face detected</Text>
         </View>
       );
     } else {
@@ -44,9 +44,8 @@ const CameraDetector = ({ navigation }) => {
             <Text style={styles.faceDesc}>Eyes Shut: {eyesShut.toString()}</Text>
             <Text style={styles.faceDesc}>Winking: {winking.toString()}</Text>
             <Text style={styles.faceDesc}>Smiling: {smiling.toString()}</Text>
-            {eyesShut ? <Text>Close the Eyes</Text> : <Text>You eyes Good</Text>}
-            {winking ? <Text> harika görünüyorsun </Text> : <Text> Solgunsun </Text>}
-            {smiling ? <Text> harika görünüyorsun </Text> : <Text> Solgunsun </Text>}
+
+            {smiling ? <Text> Harika görünüyorsun </Text> : <Text> Gülümse </Text>}
           </View>
         );
       });
@@ -56,7 +55,7 @@ const CameraDetector = ({ navigation }) => {
   // camera open func
   const handleFacesDetected = ({ faces }) => {
     setFaceData(faces);
-    console.log(faces);
+    //console.log(faces);
 
     if (faces[0]) {
       setBox({
@@ -95,7 +94,7 @@ const CameraDetector = ({ navigation }) => {
           <TouchableOpacity
             onPress={() => {
               navigation.navigate("Home", { screen: "Home" });
-              console.log(navigation.navigate("Home", { screen: "Home" }));
+              //console.log(navigation.navigate("Home", { screen: "Home" }));
             }}
             style={styles.homepage}
           >

@@ -1,3 +1,4 @@
+import { t } from "i18next";
 import React, { useState } from "react";
 import { View, Text, ScrollView, Image, TouchableOpacity } from "react-native";
 import { useSelector } from "react-redux";
@@ -8,7 +9,7 @@ const Home = ({ navigation }) => {
   const state = useSelector((state) => state.App.list);
   const name = useSelector((state) => state.App.name);
 
-  console.log("Home sayfa", state);
+  //console.log("Home sayfa", state);
 
 
   const [result, setResult] = useState("");
@@ -125,16 +126,16 @@ const Home = ({ navigation }) => {
   return (
     <ScrollView>
       <View style={styles.container}>
-        {state && <Text>Merhaba {name} cilt analizi sonucun {state} </Text>}
+        {name && <Text style={styles.names}>{t("hellom")} {name}</Text>}
         {result}
         <TouchableOpacity style={styles.button}
           onPress={() => {
             navigation.navigate("Login", { screen: "Login" });
-            console.log(navigation.navigate("Login", { screen: "Login" }));
+            // console.log(navigation.navigate("Login", { screen: "Login" }));
           }}
 
         >
-          <Text style={styles.buttonText}>Home Page</Text>
+          <Text style={styles.buttonText}>{t("homepage")}</Text>
         </TouchableOpacity>
       </View>
     </ScrollView>
