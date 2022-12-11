@@ -6,12 +6,9 @@ import * as yup from "yup";
 import { setApp } from "../../redux/actions/app";
 import { Faces } from "./Faces";
 import styles from "./styles";
-import '../../../assets/i18n/language';
-import { useTranslation } from 'react-i18next';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-
-
-
+import "../../../assets/i18n/language";
+import { useTranslation } from "react-i18next";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
 
 const Select = ({ navigation }, props) => {
   const dispatch = useDispatch();
@@ -37,9 +34,7 @@ const Select = ({ navigation }, props) => {
       <Faces />
       {name && <Text style={styles.nickname}>Welcome now text to input {name}</Text>}
 
-      <Text style={styles.description}>
-        {t("command")}
-      </Text>
+      <Text style={styles.description}>{t("command")}</Text>
       <Formik
         initialValues={{ cilt: "", makeup: "", washing: "", useskincare: "" }}
         onSubmit={addSelect}
@@ -55,7 +50,7 @@ const Select = ({ navigation }, props) => {
             <Text style={styles.guestion}>{t("query1")}</Text>
             <TextInput
               placeholder={t("ans1")}
-              style={styles.inputone} s
+              style={styles.inputone}
               returnKeytype=" done "
               value={values.cilt}
               onChangeText={handleChange("cilt")}
@@ -89,7 +84,15 @@ const Select = ({ navigation }, props) => {
             />
             {touched.useskincare && errors.useskincare && <Text style={{ fontSize: 13, color: "red", marginLeft: 20 }}>{errors.useskincare}</Text>}
 
-            <FontAwesome.Button name="language" backgroundColor={"#FFD1D1"} justifyContent="center" margin={0} color={"#E94560"} size={30} onPress={() => i18n.language === "en" ? changeLanguage("tr") : changeLanguage("en")} />
+            <FontAwesome.Button
+              name="language"
+              backgroundColor={"#FFD1D1"}
+              justifyContent="center"
+              margin={0}
+              color={"#E94560"}
+              size={30}
+              onPress={() => (i18n.language === "en" ? changeLanguage("tr") : changeLanguage("en"))}
+            />
 
             <TouchableOpacity onPress={handleSubmit} style={styles.addContainer}>
               <Text style={styles.inputAdd}>{t("add")}</Text>
@@ -101,8 +104,6 @@ const Select = ({ navigation }, props) => {
           </View>
         )}
       </Formik>
-
-
     </View>
   );
 };

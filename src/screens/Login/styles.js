@@ -22,8 +22,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
-
-    marginTop: H(2),
+    marginTop: H(40),
   },
   input: {
     borderWidth: 0.5,

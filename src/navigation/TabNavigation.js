@@ -9,16 +9,6 @@ const Navigation = (props) => {
   return (
     <Tab.Navigator initialRouteName="Login" screenOptions={{ tabBarShowLabel: false, headerShown: false }}>
       <Tab.Screen
-        name="Home"
-        component={screens.Home}
-        options={{
-          tabBarIcon: ({ focused, color, size }) => {
-            if (focused) return <MaterialCommunityIcons name="home" color={"#424642"} size={size} />;
-            return <MaterialCommunityIcons name="home-outline" color={color} size={size} />;
-          },
-        }}
-      />
-      <Tab.Screen
         name="Select"
         component={screens.Select}
         options={{
@@ -43,3 +33,15 @@ const Navigation = (props) => {
 };
 
 export { Navigation };
+/**
+ *  <Tab.Screen
+        name="Home"
+        component={screens.Home}
+        options={{
+          tabBarIcon: ({ focused, color, size }) => {
+            if (focused) return <MaterialCommunityIcons name="home" color={"#424642"} size={size} />;
+            return <MaterialCommunityIcons name="home-outline" color={color} size={size} />;
+          },
+        }}
+      />
+ */

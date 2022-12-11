@@ -2,7 +2,7 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Navigation } from "./TabNavigation";
 import { NavigationContainer } from "@react-navigation/native";
-import { CameraDetector } from "../screens";
+import { CameraDetector, Home } from "../screens";
 
 const Stack = createNativeStackNavigator();
 
@@ -18,6 +18,7 @@ const Stacknav = () => {
           }}
         />
         <Stack.Screen name="CameraDetector" component={CameraDetector} />
+        <Stack.Screen name="Home" component={Home} />
       </Stack.Navigator>
     </NavigationContainer>
   );
