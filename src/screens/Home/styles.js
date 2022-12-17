@@ -12,7 +12,8 @@ const styles = StyleSheet.create({
   },
   kurucilt: {
     marginBottom: 10,
-    marginTop: 5,
+    marginTop: 10,
+    height: H(100)
   },
   kurucilttext: {
     color: "white",
@@ -145,6 +146,23 @@ const styles = StyleSheet.create({
     marginLeft: 50,
     marginTop: 58,
   },
+  button: {
+    borderWidth: 0.5,
+    backgroundColor: colors.darkpink,
+    padding: 10,
+    marginTop: H(1),
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 18,
+    textAlign: "center",
+  },
+  names: {
+    color: "white",
+    textAlign: "center",
+    fontSize: 24,
+  }
+
 });
 
 export default styles;

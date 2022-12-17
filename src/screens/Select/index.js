@@ -14,14 +14,14 @@ const Select = ({ navigation }, props) => {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.App.list);
   const name = useSelector((state) => state.App.name);
-  console.log("select sayfası", state, name);
+  // console.log("select sayfası", state, name);
 
   const openCamera = () => {
     navigation.navigate("CameraDetector", { screen: "CameraDetector" });
   };
 
   const addSelect = (values) => {
-    console.log(values);
+    // console.log(values);
     dispatch(setApp([values]));
   };
   const { t, i18n } = useTranslation();
@@ -42,7 +42,7 @@ const Select = ({ navigation }, props) => {
           cilt: yup.string().max(5).min(3, "Can not be less than 3 characters.").required("Is required."),
           makeup: yup.string().required("Is required.").max(5),
           washing: yup.string().required("Is required.").max(5),
-          useskincare: yup.string().min(5, "Can not be less than 4 characters.").required("Is required."),
+          useskincare: yup.string().min(4, "Can not be less than 4 characters.").required("Is required."),
         })}
       >
         {({ handleChange, handleSubmit, values, errors, touched }) => (
